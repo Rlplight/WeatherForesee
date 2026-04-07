@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Weather Foresight</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+</head>
+
+<body>
+
+<div id="landing" class="landing">
+<h1 class="title">Weather Foresight</h1>
+
+<div class="search">
+<input id="cityInput" placeholder="Enter city name">
+<button onclick="fetchWeather()">Search</button>
+</div>
+</div>
+
+<div id="mainContent" class="main">
+
+<div class="top">
+<h2 id="cityLabel"></h2>
+<div id="localTime"></div>
+
+<div id="info"></div>
+<div id="skyStatus"></div>
+</div>
+
+<div class="cards">
+<div class="card" onclick="openChart('humidity')">
+<p>Humidity</p>
+<h3 id="humidity"></h3>
+</div>
+
+<div class="card" onclick="openChart('wind')">
+<p>Wind</p>
+<h3 id="wind"></h3>
+</div>
+
+<div class="card" onclick="openChart('pressure')">
+<p>Pressure</p>
+<h3 id="pressure"></h3>
+</div>
+</div>
+
+<div class="chart-section" id="chartSection">
+<h3 id="chartTitle"></h3>
+<canvas id="chartCanvas"></canvas>
+</div>
+
+<div class="forecast" id="forecastGrid"></div>
+
+<div class="map-section">
+
+<select id="layerSelect">
+<option value="clouds_new">Clouds</option>
+<option value="precipitation_new">Rain</option>
+<option value="temp_new">Temp</option>
+<option value="wind_new">Wind</option>
+</select>
+
+<div id="weatherMap"></div>
+
+</div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
